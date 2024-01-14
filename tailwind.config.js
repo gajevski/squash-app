@@ -3,8 +3,11 @@ module.exports = {
   content: [
     "./src/**/*.{html,ts}",
   ],
+  daisyui: {
+    themes: ["dracula"],
+  },
   theme: {
     extend: {},
   },
-  plugins: [require("daisyui")],
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
 }
