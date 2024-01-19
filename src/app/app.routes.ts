@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from '../views/home/home.component';
 import { ProfileComponent } from '../views/profile/profile.component';
 import { HistoryComponent } from '../views/history/history.component';
+import { AuthComponent } from '../views/auth/auth.component';
 
 export const routes: Routes = [
     {
@@ -18,5 +19,15 @@ export const routes: Routes = [
         path: 'history',
         title: `SquashAPP - Player's History`,
         component: HistoryComponent
+    },
+    {
+        path: 'auth',
+        title: `SquashAPP - Auth`,
+        component: AuthComponent
+    },
+    {
+        path: '**',
+        title: 'SquashAPP - Home Page',
+        component: HomeComponent
     }
 ];
