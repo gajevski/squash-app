@@ -9,9 +9,9 @@ import { AuthService } from './auth.service';
   styleUrl: './auth.component.scss'
 })
 export class AuthComponent {
-  private _authService = inject(AuthService);
+  private _authService: AuthService = inject(AuthService);
 
   public authUser(): void {
-    this._authService.auth();
+    this._authService.auth().subscribe();
   }
 }
