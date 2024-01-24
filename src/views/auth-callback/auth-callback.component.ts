@@ -16,9 +16,7 @@ export class AuthCallbackComponent {
   public ngOnInit(): void {
     const code = this._route.snapshot.queryParams['code'];
     if (code) {
-      this._authService.exchangeCodeForToken(code).subscribe(
-        // Handle response
-      );
+      this._authService.exchangeCodeForToken(code).subscribe((res) => console.log(res));
     }
   }
 }
