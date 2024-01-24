@@ -10,7 +10,7 @@ export class AuthService {
   private _http: HttpClient = inject(HttpClient);
   private _baseUrl: string = environment.apiBaseUrl;
 
-  public redirectToGitHub(): void {
+  public loginWithGitHub(): void {
     window.location.href = `${this._baseUrl}/login`;
   }
 
