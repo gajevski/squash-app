@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  private _authService: AuthService = inject(AuthService);
 
+  public onLoginClick(): void {
+    this._authService.loginWithGitHub();
+  }
 }
