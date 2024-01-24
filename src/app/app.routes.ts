@@ -2,7 +2,8 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from '../views/home/home.component';
 import { ProfileComponent } from '../views/profile/profile.component';
 import { HistoryComponent } from '../views/history/history.component';
-import { AuthComponent } from '../views/auth/auth.component';
+import { LoginComponent } from '../views/login/login.component';
+import { AuthCallbackComponent } from '../views/auth-callback/auth-callback.component';
 
 export const routes: Routes = [
     {
@@ -22,8 +23,13 @@ export const routes: Routes = [
     },
     {
         path: 'auth',
-        title: `SquashAPP - Auth`,
-        component: AuthComponent
+        title: `SquashAPP - Login`,
+        component: LoginComponent
+    },
+    {
+        path: 'auth-callback',
+        title: `SquashAPP - Login`,
+        component: AuthCallbackComponent
     },
     {
         path: '**',
