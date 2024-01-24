@@ -14,7 +14,7 @@ export class AuthCallbackComponent {
   private _authService: AuthService = inject(AuthService);
 
   public ngOnInit(): void {
-    const code = this._route.snapshot.queryParams['code'];
+    const code: string = this._route.snapshot.queryParams['code'];
     if (code) {
       this._authService.exchangeCodeForToken(code).subscribe((res) => console.log(res));
     }
