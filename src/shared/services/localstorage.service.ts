@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AppComponent } from '../../app/app.component';
+import { tap } from 'rxjs';
 
 class LocalStorage implements Storage {
   [name: string]: any;
@@ -16,39 +17,43 @@ class LocalStorage implements Storage {
 })
 export class LocalstorageService implements Storage {
 
-  private storage: Storage;
+  private _storage: Storage;
 
   constructor() {
-    this.storage = new LocalStorage();
+    this._storage = new LocalStorage();
 
-    AppComponent.isBrowser.subscribe(isBrowser => {
-      if (isBrowser) {
-        this.storage = localStorage;
-      }
-    });
+    AppComponent.isBrowser
+    .pipe(
+      tap((isBrowser: boolean | null) => {
+        if (isBrowser) {
+          this._storage = localStorage;
+        }
+      })
+    )
+    .subscribe();
   }
 
   [name: string]: any;
 
   length: number = 0;
 
-  clear(): void {
-    this.storage.clear();
+  public clear(): void {
+    this._storage.clear();
   }
 
-  getItem(key: string): string | null {
-    return this.storage.getItem(key);
+  public getItem(key: string): string | null {
+    return this._storage.getItem(key);
   }
 
-  key(index: number): string | null {
-    return this.storage.key(index);
+  public key(index: number): string | null {
+    return this._storage.key(index);
   }
 
-  removeItem(key: string): void {
-    return this.storage.removeItem(key);
+  public removeItem(key: string): void {
+    return this._storage.removeItem(key);
   }
 
-  setItem(key: string, value: string): void {
-    return this.storage.setItem(key, value);
+  public setItem(key: string, value: string): void {
+    return this._storage.setItem(key, value);
   }
 }
