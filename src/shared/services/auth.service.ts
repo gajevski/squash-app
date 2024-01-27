@@ -3,6 +3,7 @@ import { environment } from '../../enviroment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { LocalstorageService } from './localstorage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   private _http: HttpClient = inject(HttpClient);
   private _router: Router = inject(Router);
+  private _localStorage: LocalstorageService = inject(LocalstorageService); 
   private _baseUrl: string = environment.apiBaseUrl;
 
   public loginWithGitHub(): void {
@@ -21,7 +23,7 @@ export class AuthService {
   }
 
   public logout(): void {
-    localStorage.removeItem('token');
+    this._localStorage.removeItem('token');
     this._router.navigate(['/auth']);
   }
 }
