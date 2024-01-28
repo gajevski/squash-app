@@ -1,7 +1,7 @@
 @if (user$ | async; as user) {
   <div class="hero min-h-screen bg-base-200">
     <div class="hero-content flex-col lg:flex-row-reverse">
-      <img [src]="user.image" class="rounded-lg shadow-2xl" />
+      <img [ngSrc]="user.image" width="400" height="400" priority class="rounded-lg shadow-2xl" />
       <div>
         <h1 class="text-5xl font-bold">{{ user.username }}</h1>
         <p class="py-6">Rakieta: {{ user.racket }}</p>
