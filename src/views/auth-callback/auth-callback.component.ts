@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
 import { LocalstorageService } from '../../shared/services/localstorage.service';
@@ -8,7 +8,8 @@ import { LocalstorageService } from '../../shared/services/localstorage.service'
   standalone: true,
   imports: [],
   templateUrl: './auth-callback.component.html',
-  styleUrl: './auth-callback.component.scss'
+  styleUrl: './auth-callback.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthCallbackComponent {
   private _activatedRoute: ActivatedRoute = inject(ActivatedRoute);
