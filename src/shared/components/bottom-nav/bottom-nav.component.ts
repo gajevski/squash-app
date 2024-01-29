@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter } from 'rxjs';
 
@@ -7,7 +7,8 @@ import { filter } from 'rxjs';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './bottom-nav.component.html',
-  styleUrl: './bottom-nav.component.scss'
+  styleUrl: './bottom-nav.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BottomNavComponent implements OnInit {
   public currentRoute!: string;
