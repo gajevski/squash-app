@@ -1,4 +1,4 @@
-import { Component, Signal, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Signal, inject } from '@angular/core';
 import { AuthService } from '../../shared/services/auth.service';
 import { UserService } from '../../shared/services/user.service';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
@@ -17,7 +17,8 @@ const initialValue: User = {
   standalone: true,
   imports: [CommonModule, NgOptimizedImage],
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.scss'
+  styleUrl: './profile.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ProfileComponent {
