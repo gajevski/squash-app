@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
@@ -6,7 +6,8 @@ import { AuthService } from '../../shared/services/auth.service';
   standalone: true,
   imports: [],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
   private _authService: AuthService = inject(AuthService);
