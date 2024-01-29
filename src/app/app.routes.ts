@@ -10,35 +10,41 @@ export const routes: Routes = [
     {
         path: '',
         title: 'SquashAPP - Home Page',
-        component: HomeComponent,
+        loadComponent: () => import('../views/home/home.component')
+            .then((m) => m.HomeComponent),
         canActivate: [authGuard]
     },
     {
         path: 'profile',
         title: `SquashAPP - Player's Profile`,
-        component: ProfileComponent,
+        loadComponent: () => import('../views/profile/profile.component')
+            .then((m) => m.ProfileComponent),
         canActivate: [authGuard]
     },
     {
         path: 'history',
         title: `SquashAPP - Player's History`,
-        component: HistoryComponent,
+        loadComponent: () => import('../views/history/history.component')
+            .then((m) => m.HistoryComponent),
         canActivate: [authGuard]
     },
     {
         path: 'auth',
         title: `SquashAPP - Login`,
-        component: LoginComponent
+        loadComponent: () => import('../views/login/login.component')
+            .then((m) => m.LoginComponent),
     },
     {
         path: 'auth-callback',
         title: `SquashAPP - Login`,
-        component: AuthCallbackComponent
+        loadComponent: () => import('../views/auth-callback/auth-callback.component')
+            .then((m) => m.AuthCallbackComponent),
     },
     {
         path: '**',
         title: 'SquashAPP - Home Page',
-        component: HomeComponent,
+        loadComponent: () => import('../views/home/home.component')
+            .then((m) => m.HomeComponent),
         canActivate: [authGuard]
     }
 ];
