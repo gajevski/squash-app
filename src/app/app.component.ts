@@ -1,4 +1,4 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { BottomNavComponent } from '../shared/components/bottom-nav/bottom-nav.component';
@@ -9,7 +9,8 @@ import { BehaviorSubject } from 'rxjs';
   standalone: true,
   imports: [CommonModule, RouterOutlet, BottomNavComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   static isBrowser: BehaviorSubject<boolean | null> = new BehaviorSubject<boolean | null>(null);
