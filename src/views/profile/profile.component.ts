@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, Signal, inject } from '@angular/core';
-import { AuthService } from '../../shared/services/auth.service';
 import { UserService } from '../../shared/services/user.service';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { User } from '../../shared/models/user';
@@ -22,11 +21,6 @@ const initialValue: User = {
 })
 
 export class ProfileComponent {
-  private _authService: AuthService = inject(AuthService);
   private _userService: UserService = inject(UserService);
   public user: Signal<User> = toSignal(this._userService.getUser(), { initialValue });
-
-  public logout(): void {
-    this._authService.logout();
-  }
 }
