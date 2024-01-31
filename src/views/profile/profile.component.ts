@@ -11,6 +11,12 @@ const initialValue: User = {
   racket: 'racket',
 };
 
+enum TabEnum {
+  Activity = "activity",
+  Statistics = "statistics",
+  Racket = "racket",
+}
+
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -23,4 +29,10 @@ const initialValue: User = {
 export class ProfileComponent {
   private _userService: UserService = inject(UserService);
   public user: Signal<User> = toSignal(this._userService.getUser(), { initialValue });
+  public tabEnum: typeof TabEnum = TabEnum;
+  public activeTab: string = this.tabEnum.Activity
+
+  public changeTab(tab: TabEnum): void {
+    this.activeTab = tab;
+  }
 }
