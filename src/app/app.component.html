@@ -1,5 +1,13 @@
+@defer() {
 @if (user$ | async; as user) {
 <app-navbar [image]="user.image" />
 <app-bottom-nav />
 <router-outlet />
+}
+}
+@loading(minimum 2000) {
+<div class="ball">
+</div>
+<span class="shadow">
+</span>
 }
