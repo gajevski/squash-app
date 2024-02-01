@@ -2,18 +2,7 @@ import { ChangeDetectionStrategy, Component, Signal, inject } from '@angular/cor
 import { UserService } from '../../shared/services/user.service';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { User } from '../../shared/models/user';
-import { toSignal } from '@angular/core/rxjs-interop';
-
-const initialValue: User = {
-  id: 0,
-  username: 'name',
-  image: '../../assets/images/squash-logo.png',
-  racket: {
-    name: 'racket',
-    image: '../../assets/images/squash-logo.png',
-    purchaseDate: '01/01/2000'
-  },
-};
+import { Observable, take } from 'rxjs';
 
 enum TabEnum {
   Activity = "activity",
@@ -32,7 +21,7 @@ enum TabEnum {
 
 export class ProfileComponent {
   private _userService: UserService = inject(UserService);
-  public user: Signal<User> = toSignal(this._userService.getUser(), { initialValue });
+  public user$: Observable<User> = this._userService.getUser();
   public tabEnum: typeof TabEnum = TabEnum;
   public activeTab: string = this.tabEnum.Activity
 
