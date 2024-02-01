@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Signal, inject } from '@angular/cor
 import { UserService } from '../../shared/services/user.service';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { User } from '../../shared/models/user';
-import { Observable, take } from 'rxjs';
+import { Observable } from 'rxjs';
 
 enum TabEnum {
   Activity = "activity",
