@@ -3,7 +3,7 @@
     <div>
       <div class="bg-white relative shadow rounded-lg w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto">
       <div class="flex justify-center">
-        <img [src]="user.image" alt=""
+        <img [src]="user.image" alt="profile image"
           class="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110">
       </div>
 
@@ -19,15 +19,19 @@
         <div class="w-full">
           @switch (activeTab) {
             @case (tab.Racket) {
-              <h3 class="font-medium text-gray-900 text-left px-6">Racket</h3>
               <div class="mt-5 w-full flex flex-col overflow-hidden">
-                <h2 class="font-medium text-gray-900 text-left px-6">
-                  {{ user.racket.name }}
-                </h2>
-                <h2 class="font-medium text-gray-900 text-left px-6 py-6">
-                  Purchased: {{ user.racket.purchaseDate }}
-                </h2>
-                <img [src]="user.racket.image" alt="squash racket">
+                <div class="card">
+                  <figure class="px-10 pt-10">
+                    <img [src]="user.racket.image" alt="racket image" class="rounded-full w-48 h-48 border-4 border-white transition duration-200 transform hover:scale-110" />
+                  </figure>
+                  <div class="card-body items-center text-center text-gray-900">
+                    <h2 class="card-title">{{ user.racket.name }}</h2>
+                    <p>Purchased: {{ user.racket.purchaseDate }}</p>
+                    <p>Matches played: {{ user.racket.playedMatchesAmount }}</p>
+                    <p>String: {{ user.racket.string }}</p>
+                    <p>Grip: {{ user.racket.grip }}</p>
+                  </div>
+                </div>
                 </div>
             }
             @case (tab.Activity) {
