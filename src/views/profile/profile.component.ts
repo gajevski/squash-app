@@ -8,7 +8,11 @@ const initialValue: User = {
   id: 0,
   username: 'name',
   image: '../../assets/images/squash-logo.png',
-  racket: 'racket',
+  racket: {
+    name: 'racket',
+    image: '../../assets/images/squash-logo.png',
+    purchaseDate: '01/01/2000'
+  },
 };
 
 enum TabEnum {
