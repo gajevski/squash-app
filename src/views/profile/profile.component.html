@@ -80,7 +80,12 @@
               </div>
             }
             @case (tab.Statistics) {
-              <h3 class="font-medium text-gray-900 text-left px-6">Statistics</h3>
+              <div class="card-body text-gray-900">
+                <p>Matches played: {{ user.statistics.matchesPlayed }}</p>
+                <p>Matches won: {{ user.statistics.matchesWon }}</p>
+                <p>Matches lost: {{ user.statistics.matchesLost }}</p>
+                <p>Winratio: {{ user.statistics.winratio }}%</p>
+              </div>
             }
           }
         </div>
