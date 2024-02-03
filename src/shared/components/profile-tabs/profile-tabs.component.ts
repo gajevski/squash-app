@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 import { Tab } from '../../enums/tab';
 
 @Component({
@@ -6,7 +6,8 @@ import { Tab } from '../../enums/tab';
   standalone: true,
   imports: [],
   templateUrl: './profile-tabs.component.html',
-  styleUrl: './profile-tabs.component.scss'
+  styleUrl: './profile-tabs.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProfileTabsComponent {
   @Output() public tabChanged: EventEmitter<Tab> = new EventEmitter<Tab>(); 
