@@ -5,8 +5,7 @@ import { Racket } from '../../models/racket';
   selector: 'app-racket-info',
   standalone: true,
   imports: [],
-  templateUrl: './racket-info.component.html',
-  styleUrl: './racket-info.component.scss'
+  templateUrl: './racket-info.component.html'
 })
 export class RacketInfoComponent {
   @Input({ required: true }) racket!: Racket;
