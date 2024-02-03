@@ -1,10 +1,6 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from '../views/home/home.component';
-import { ProfileComponent } from '../views/profile/profile.component';
-import { HistoryComponent } from '../views/history/history.component';
-import { LoginComponent } from '../views/login/login.component';
-import { AuthCallbackComponent } from '../views/auth-callback/auth-callback.component';
 import { authGuard } from '../shared/guards/auth.guard';
+import { profileResolver } from '../views/profile/profile.resolver';
 
 export const routes: Routes = [
     {
@@ -19,6 +15,7 @@ export const routes: Routes = [
         title: `SquashAPP - Player's Profile`,
         loadComponent: () => import('../views/profile/profile.component')
             .then((m) => m.ProfileComponent),
+        resolve: { user: profileResolver },
         canActivate: [authGuard]
     },
     {
