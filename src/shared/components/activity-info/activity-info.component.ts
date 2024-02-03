@@ -4,8 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-activity-info',
   standalone: true,
   imports: [],
-  templateUrl: './activity-info.component.html',
-  styleUrl: './activity-info.component.scss'
+  templateUrl: './activity-info.component.html'
 })
 export class ActivityInfoComponent {
 
