@@ -1,22 +1,25 @@
 import { ChangeDetectionStrategy, Component, Signal, inject } from '@angular/core';
-import { UserService } from '../../shared/services/user.service';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { User } from '../../shared/models/user';
-import { Observable } from 'rxjs';
 import { Tab } from '../../shared/enums/tab'
+import { ActivatedRoute } from '@angular/router';
+import { ProfileTabsComponent } from "../../shared/components/profile-tabs/profile-tabs.component";
+import { RacketInfoComponent } from "../../shared/components/racket-info/racket-info.component";
+import { StatisticsInfoComponent } from "../../shared/components/statistics-info/statistics-info.component";
+import { ActivityInfoComponent } from "../../shared/components/activity-info/activity-info.component";
 
 @Component({
-  selector: 'app-profile',
-  standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
-  templateUrl: './profile.component.html',
-  styleUrl: './profile.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-profile',
+    standalone: true,
+    templateUrl: './profile.component.html',
+    styleUrl: './profile.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, NgOptimizedImage, ProfileTabsComponent, RacketInfoComponent, StatisticsInfoComponent, ActivityInfoComponent]
 })
 
 export class ProfileComponent {
-  private _userService: UserService = inject(UserService);
-  public user$: Observable<User> = this._userService.getUser();
+  private _route: ActivatedRoute = inject(ActivatedRoute);
+  public user: User = this._route.snapshot.data['user'];
   public tab: typeof Tab = Tab;
   public activeTab: string = this.tab.Activity
 

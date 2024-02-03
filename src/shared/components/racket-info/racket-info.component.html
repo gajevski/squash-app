@@ -1,0 +1,15 @@
+<div class="mt-5 w-full flex flex-col overflow-hidden">
+    <div class="card">
+        <figure class="px-10 pt-10">
+            <img [src]="racket.image" alt="racket image"
+                class="rounded-full w-48 h-48 border-4 border-white transition duration-200 transform hover:scale-110" />
+        </figure>
+        <div class="card-body items-center text-center text-gray-900">
+            <h2 class="card-title">{{ racket.name }}</h2>
+            <p>Purchased: {{ racket.purchaseDate }}</p>
+            <p>Matches played: {{ racket.playedMatchesAmount }}</p>
+            <p>String: {{ racket.string }}</p>
+            <p>Grip: {{ racket.grip }}</p>
+        </div>
+    </div>
+</div>
