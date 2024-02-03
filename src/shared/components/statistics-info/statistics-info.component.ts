@@ -5,8 +5,7 @@ import { Statistics } from '../../models/statistics';
   selector: 'app-statistics-info',
   standalone: true,
   imports: [],
-  templateUrl: './statistics-info.component.html',
-  styleUrl: './statistics-info.component.scss'
+  templateUrl: './statistics-info.component.html'
 })
 export class StatisticsInfoComponent {
   @Input({ required: true }) public statistics!: Statistics;
