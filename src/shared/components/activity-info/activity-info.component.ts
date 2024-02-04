@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Activity } from '../../models/activity';
 
 @Component({
   selector: 'app-activity-info',
@@ -8,5 +9,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ActivityInfoComponent {
-
+  @Input({ required: true }) activities!: Activity[];
 }
