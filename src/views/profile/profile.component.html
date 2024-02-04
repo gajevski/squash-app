@@ -17,7 +17,7 @@
         <app-racket-info [racket]="user.racket" />
         }
         @case (tab.Activity) {
-        <app-activity-info />
+        <app-activity-info [activities]="user.activities"/>
         }
         @case (tab.Statistics) {
         <app-statistics-info [statistics]="user.statistics" />
