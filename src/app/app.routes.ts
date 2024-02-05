@@ -19,10 +19,10 @@ export const routes: Routes = [
         canActivate: [authGuard]
     },
     {
-        path: 'history',
-        title: `SquashAPP - Player's History`,
-        loadComponent: () => import('../views/history/history.component')
-            .then((m) => m.HistoryComponent),
+        path: 'tv',
+        title: `SquashAPP - Squash TV`,
+        loadComponent: () => import('../views/squash-tv/squash-tv.component')
+            .then((m) => m.SquashTvComponent),
         canActivate: [authGuard]
     },
     {
