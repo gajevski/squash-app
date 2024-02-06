@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
-import { filter } from 'rxjs';
+import { filter, tap } from 'rxjs';
 
 @Component({
   selector: 'app-bottom-nav',
@@ -17,13 +17,14 @@ export class BottomNavComponent implements OnInit {
 
   public ngOnInit(): void {
     this._router.events.pipe(
-      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
-      this.currentRoute = event.url;
-    });
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+      tap((event: NavigationEnd) => {
+        this.currentRoute = event.urlAfterRedirects;
+      })
+    ).subscribe();
   }
 
   public isActive(route: string): boolean {
-    return this.currentRoute === route;
+    return this._router.url === route;
   }
 }
