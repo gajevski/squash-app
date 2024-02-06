@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
@@ -10,8 +10,7 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class BottomNavComponent {
   public currentRoute!: string;
-  
-  constructor(private _router: Router) {}
+  private _router: Router = inject(Router);
 
   public isActive(route: string): boolean {
     return this._router.url === route;
