@@ -16,12 +16,6 @@ export class BottomNavComponent implements OnInit {
   constructor(private _router: Router) {}
 
   public ngOnInit(): void {
-    this._router.events.pipe(
-      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
-      tap((event: NavigationEnd) => {
-        this.currentRoute = event.urlAfterRedirects;
-      })
-    ).subscribe();
   }
 
   public isActive(route: string): boolean {
