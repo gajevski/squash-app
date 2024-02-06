@@ -10,13 +10,11 @@ import { filter, tap } from 'rxjs';
   styleUrl: './bottom-nav.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BottomNavComponent implements OnInit {
+export class BottomNavComponent {
   public currentRoute!: string;
   
   constructor(private _router: Router) {}
 
-  public ngOnInit(): void {
-  }
 
   public isActive(route: string): boolean {
     return this._router.url === route;
