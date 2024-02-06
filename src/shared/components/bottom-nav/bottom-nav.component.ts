@@ -1,29 +1,18 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router, RouterLink } from '@angular/router';
-import { filter } from 'rxjs';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-bottom-nav',
   standalone: true,
   imports: [RouterLink],
   templateUrl: './bottom-nav.component.html',
-  styleUrl: './bottom-nav.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BottomNavComponent implements OnInit {
-  public currentRoute!: string;
-  
-  constructor(private _router: Router) {}
 
-  public ngOnInit(): void {
-    this._router.events.pipe(
-      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
-      this.currentRoute = event.url;
-    });
-  }
+export class BottomNavComponent {
+  public currentRoute!: string;
+  private _router: Router = inject(Router);
 
   public isActive(route: string): boolean {
-    return this.currentRoute === route;
+    return this._router.url === route;
   }
 }
