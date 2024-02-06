@@ -6,8 +6,8 @@ import { Router, RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './bottom-nav.component.html',
-  styleUrl: './bottom-nav.component.scss',
 })
+
 export class BottomNavComponent {
   public currentRoute!: string;
   private _router: Router = inject(Router);
