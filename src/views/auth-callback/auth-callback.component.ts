@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
 import { LocalstorageService } from '../../shared/services/localstorage.service';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-auth-callback',
@@ -20,10 +21,14 @@ export class AuthCallbackComponent {
   public ngOnInit(): void {
     const code: string = this._activatedRoute.snapshot.queryParams['code'];
     if (code) {
-      this._authService.exchangeCodeForToken(code).subscribe((data) => {
-        this._localStorage.setItem('token', data.token);
-        this._router.navigate(['/home']);
-    }); 
+      this._authService.exchangeCodeForToken(code)
+      .pipe(
+        tap((data) => {
+          this._localStorage.setItem('token', data.token);
+          this._router.navigate(['/home']);
+      })
+      )
+      .subscribe(); 
     }
   }
 }
