@@ -14,10 +14,6 @@ export class AuthService {
   private _localStorage: LocalstorageService = inject(LocalstorageService); 
   private _baseUrl: string = environment.apiBaseUrl;
 
- public exchangeCodeForToken(code: string): Observable<any> {
-    return this._http.get<any>(`${this._baseUrl}/callback?code=${code}`);
-  }
-
   public logout(): void {
     this._localStorage.removeItem('token');
     this._router.navigate(['/auth']);
