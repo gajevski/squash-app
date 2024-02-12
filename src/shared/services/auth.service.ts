@@ -9,9 +9,5 @@ import { LocalstorageService } from './localstorage.service';
   providedIn: 'root'
 })
 export class AuthService {
-  private _http: HttpClient = inject(HttpClient);
-  private _router: Router = inject(Router);
-  private _localStorage: LocalstorageService = inject(LocalstorageService); 
   private _baseUrl: string = environment.apiBaseUrl;
-
 }
