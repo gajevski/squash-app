@@ -14,10 +14,6 @@ export class AuthService {
   private _localStorage: LocalstorageService = inject(LocalstorageService); 
   private _baseUrl: string = environment.apiBaseUrl;
 
-  public loginWithGitHub(): void {
-    window.location.href = `${this._baseUrl}/login`;
-  }
-
  public exchangeCodeForToken(code: string): Observable<any> {
     return this._http.get<any>(`${this._baseUrl}/callback?code=${code}`);
   }
