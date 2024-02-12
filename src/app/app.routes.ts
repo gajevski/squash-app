@@ -7,23 +7,20 @@ export const routes: Routes = [
         path: '',
         title: 'SquashAPP - Home Page',
         loadComponent: () => import('../views/home/home.component')
-            .then((m) => m.HomeComponent),
-        canActivate: [authGuard]
+            .then((m) => m.HomeComponent), 
     },
     {
         path: 'profile',
         title: `SquashAPP - Player's Profile`,
         loadComponent: () => import('../views/profile/profile.component')
             .then((m) => m.ProfileComponent),
-        resolve: { user: profileResolver },
-        canActivate: [authGuard]
+        resolve: { user: profileResolver }, 
     },
     {
         path: 'tv',
         title: `SquashAPP - Squash TV`,
         loadComponent: () => import('../views/squash-tv/squash-tv.component')
-            .then((m) => m.SquashTvComponent),
-        canActivate: [authGuard]
+            .then((m) => m.SquashTvComponent), 
     },
     {
         path: 'auth',
@@ -32,16 +29,9 @@ export const routes: Routes = [
             .then((m) => m.LoginComponent),
     },
     {
-        path: 'auth-callback',
-        title: `SquashAPP - Login`,
-        loadComponent: () => import('../views/auth-callback/auth-callback.component')
-            .then((m) => m.AuthCallbackComponent),
-    },
-    {
         path: '**',
         title: 'SquashAPP - Home Page',
         loadComponent: () => import('../views/home/home.component')
-            .then((m) => m.HomeComponent),
-        canActivate: [authGuard]
+            .then((m) => m.HomeComponent), 
     }
 ];

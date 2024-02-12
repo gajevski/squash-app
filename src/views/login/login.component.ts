@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { AuthService } from '../../shared/services/auth.service';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +9,8 @@ import { AuthService } from '../../shared/services/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
-  private _authService: AuthService = inject(AuthService);
 
   public onLoginClick(): void {
-    this._authService.loginWithGitHub();
+  // TODO: new auth logic
   }
 }

@@ -6,8 +6,6 @@ export const authGuard: CanActivateFn = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ): true | UrlTree => {
-  const localStorage: LocalstorageService = inject(LocalstorageService); 
-  return localStorage.getItem('token')
-    ? true
-    : inject(Router).createUrlTree(['/auth']);
+  // TODO: new auth-guard logic
+  return true;
 };
