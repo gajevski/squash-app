@@ -14,8 +14,4 @@ export class AuthService {
   private _localStorage: LocalstorageService = inject(LocalstorageService); 
   private _baseUrl: string = environment.apiBaseUrl;
 
-  public logout(): void {
-    this._localStorage.removeItem('token');
-    this._router.navigate(['/auth']);
-  }
 }
