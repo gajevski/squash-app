@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -10,9 +9,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavbarComponent {
   @Input({ required: true }) image!: string;
-  private _authService: AuthService = inject(AuthService);
 
   public logout(): void {
-    this._authService.logout();
+    // TODO: new logout functionality
   }
 }
