@@ -11,6 +11,6 @@ export class UserService {
   private _http: HttpClient = inject(HttpClient);
 
   public getUser(): Observable<User> {
-    return this._http.get<User>(`${environment.apiBaseUrl}/api/user`);
+    return this._http.get<User>(`${environment.apiBaseUrl}/user/profile`);
   }
 }
