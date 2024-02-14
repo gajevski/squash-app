@@ -4,7 +4,6 @@ import { RouterOutlet } from '@angular/router';
 import { BottomNavComponent } from '../shared/components/bottom-nav/bottom-nav.component';
 import { BehaviorSubject } from 'rxjs';
 import { NavbarComponent } from '../shared/components/navbar/navbar.component';
-import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +14,6 @@ import { UserService } from '../shared/services/user.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  private _userService: UserService = inject(UserService);
   static isBrowser: BehaviorSubject<boolean | null> = new BehaviorSubject<boolean | null>(null);
 
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
