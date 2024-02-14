@@ -2,9 +2,8 @@ import { ChangeDetectionStrategy, Component, Inject, PLATFORM_ID, inject } from 
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { BottomNavComponent } from '../shared/components/bottom-nav/bottom-nav.component';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { NavbarComponent } from '../shared/components/navbar/navbar.component';
-import { User } from '../shared/models/user';
 import { UserService } from '../shared/services/user.service';
 
 @Component({
@@ -18,7 +17,6 @@ import { UserService } from '../shared/services/user.service';
 export class AppComponent {
   private _userService: UserService = inject(UserService);
   static isBrowser: BehaviorSubject<boolean | null> = new BehaviorSubject<boolean | null>(null);
-  public user$: Observable<User> = this._userService.getUser();
 
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
     AppComponent.isBrowser.next(isPlatformBrowser(platformId));
