@@ -23,10 +23,16 @@ export const routes: Routes = [
             .then((m) => m.SquashTvComponent), 
     },
     {
-        path: 'auth',
+        path: 'login',
         title: `SquashAPP - Login`,
         loadComponent: () => import('../views/login/login.component')
             .then((m) => m.LoginComponent),
+    },
+    {
+        path: 'register',
+        title: `SquashAPP - Register`,
+        loadComponent: () => import('../views/register/register.component')
+            .then((m) => m.RegisterComponent),
     },
     {
         path: '**',
