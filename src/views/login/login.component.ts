@@ -11,6 +11,10 @@ import { RouterModule } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
+  public loginForm: FormGroup = new FormGroup({
+    email: new FormControl<string>('', { nonNullable: true }),
+    password: new FormControl<string>('', { nonNullable: true }),
+  })
 
   public onLoginClick(): void {
     // TODO: new auth logic
