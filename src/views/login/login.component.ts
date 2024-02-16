@@ -17,6 +17,6 @@ export class LoginComponent {
   })
 
   public onLoginClick(): void {
-    // TODO: new auth logic
+    console.log(this.loginForm);
   }
 }
