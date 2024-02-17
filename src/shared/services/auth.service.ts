@@ -8,6 +8,6 @@ import { User } from '../models/user';
 })
 export class AuthService {
   private _http: HttpClient = inject(HttpClient);
-  private _baseUrl: string = environment.apiBaseUrl;
+  private _apiUrl: string = `${environment.apiBaseUrl}/auth/login`;
 
 }
