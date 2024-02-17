@@ -15,7 +15,7 @@ import { take } from 'rxjs';
 })
 export class LoginComponent {
   public loginForm: FormGroup = new FormGroup({
-    email: new FormControl<string>('', { nonNullable: true }),
+    username: new FormControl<string>('', { nonNullable: true }),
     password: new FormControl<string>('', { nonNullable: true }),
   })
 
