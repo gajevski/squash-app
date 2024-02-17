@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
-import { Observable } from 'rxjs';
-import { User } from '../../shared/models/user';
+import { take } from 'rxjs';
+
 
 @Component({
   selector: 'app-login',
@@ -21,7 +21,10 @@ export class LoginComponent {
 
   private _authService: AuthService = inject(AuthService);
 
-  public onLoginClick(): Observable<User> {
-    return this._authService.login(this.loginForm.value);
+  public onLoginClick(): void {
+    this._authService.login(this.loginForm.value)
+      .pipe(
+        take(1)
+      ).subscribe();
   }
 }
