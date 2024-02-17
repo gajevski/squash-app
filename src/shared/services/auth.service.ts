@@ -10,4 +10,7 @@ export class AuthService {
   private _http: HttpClient = inject(HttpClient);
   private _apiUrl: string = `${environment.apiBaseUrl}/auth/login`;
 
+  public login(user: User) {
+    return this._http.post<User>(this._apiUrl, user)
+  }
 }
