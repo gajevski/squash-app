@@ -21,6 +21,6 @@ export class RegisterComponent {
   })
 
   public register(): void {
-    this._authService.register().subscribe();
+    this._authService.register(this.registerForm.value).subscribe();
   }
 }
