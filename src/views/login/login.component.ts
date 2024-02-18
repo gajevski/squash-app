@@ -22,9 +22,6 @@ export class LoginComponent {
   private _authService: AuthService = inject(AuthService);
 
   public login(): void {
-    this._authService.login(this.loginForm.value)
-      .pipe(
-        take(1)
-      ).subscribe();
+    this.loginForm.valid ? this._authService.login(this.loginForm.value).subscribe() : null;
   }
 }
