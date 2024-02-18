@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -15,12 +15,13 @@ export class RegisterComponent {
   private _authService: AuthService = inject(AuthService);
 
   public registerForm: FormGroup = new FormGroup({
-    username: new FormControl<string>('', { nonNullable: true }),
-    password: new FormControl<string>('', { nonNullable: true }),
-    confirmPassword: new FormControl<string>('', { nonNullable: true }),
+    username: new FormControl<string>('', Validators.required),
+    password: new FormControl<string>('', Validators.required),
+    confirmPassword: new FormControl<string>('', Validators.required),
   })
 
   public register(): void {
+    console.log(this.registerForm);
     this._authService.register(this.registerForm.value).subscribe();
   }
 }
