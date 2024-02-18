@@ -21,7 +21,7 @@ export class LoginComponent {
 
   private _authService: AuthService = inject(AuthService);
 
-  public onLoginClick(): void {
+  public login(): void {
     this._authService.login(this.loginForm.value)
       .pipe(
         take(1)
