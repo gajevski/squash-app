@@ -14,6 +14,6 @@ export class RegisterComponent {
   private _authService: AuthService = inject(AuthService);
 
   public register(): void {
-  // TODO: new auth logic
+    this._authService.register().subscribe();
   }
 }
