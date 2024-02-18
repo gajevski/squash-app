@@ -21,7 +21,6 @@ export class RegisterComponent {
   })
 
   public register(): void {
-    console.log(this.registerForm);
-    this._authService.register(this.registerForm.value).subscribe();
+    this.registerForm.valid ? this._authService.register(this.registerForm.value).subscribe() : null;
   }
 }
