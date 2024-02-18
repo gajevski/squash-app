@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
 import { take } from 'rxjs';
@@ -15,8 +15,8 @@ import { take } from 'rxjs';
 })
 export class LoginComponent {
   public loginForm: FormGroup = new FormGroup({
-    username: new FormControl<string>('', { nonNullable: true }),
-    password: new FormControl<string>('', { nonNullable: true }),
+    username: new FormControl<string>('', Validators.required),
+    password: new FormControl<string>('', Validators.required),
   })
 
   private _authService: AuthService = inject(AuthService);
