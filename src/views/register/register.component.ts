@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 })
 export class RegisterComponent {
 
-  public onRegisterClick(): void {
+  public register(): void {
   // TODO: new auth logic
   }
 }
