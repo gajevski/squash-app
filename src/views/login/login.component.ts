@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
-import { take } from 'rxjs';
+import { take, tap } from 'rxjs';
 
 
 @Component({
@@ -20,8 +20,9 @@ export class LoginComponent {
   })
 
   private _authService: AuthService = inject(AuthService);
+  private _router: Router = inject(Router);
 
   public login(): void {
-    this.loginForm.valid ? this._authService.login(this.loginForm.value).subscribe() : null;
+    this.loginForm.valid ? this._authService.login(this.loginForm.value).pipe(tap(() => this._router.navigate(['/home']))).subscribe() : null;
   }
 }
