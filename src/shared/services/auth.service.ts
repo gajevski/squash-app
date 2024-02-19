@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { Observable, of, tap } from 'rxjs';
 import { AccessToken } from '../models/access-token';
+import { LocalstorageService } from './localstorage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,12 @@ import { AccessToken } from '../models/access-token';
 export class AuthService {
   private _http: HttpClient = inject(HttpClient);
   private _apiUrl: string = `${environment.apiBaseUrl}/auth/login`;
+  private _localStorage: LocalstorageService = inject(LocalstorageService); 
 
   public login(user: User): Observable<AccessToken> {
     return this._http.post<AccessToken>(this._apiUrl, user)
     .pipe(
-      tap((token: AccessToken) => localStorage.setItem('access_token', JSON.stringify(token.access_token)))
+      tap((token: AccessToken) => this._localStorage.setItem('access_token', JSON.stringify(token.access_token)))
     )
   }
 
