@@ -10,6 +10,12 @@ export const routes: Routes = [
             .then((m) => m.HomeComponent), 
     },
     {
+        path: 'home',
+        title: 'SquashAPP - Home Page',
+        loadComponent: () => import('../views/home/home.component')
+            .then((m) => m.HomeComponent), 
+    },
+    {
         path: 'profile',
         title: `SquashAPP - Player's Profile`,
         loadComponent: () => import('../views/profile/profile.component')
