@@ -1,20 +1,21 @@
-import { Injectable, inject } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpInterceptor } from '@angular/common/http';
+import { HttpInterceptorFn } from '@angular/common/http';
+import { inject } from '@angular/core';
 import { LocalstorageService } from '../services/localstorage.service';
+import { AccessToken } from '../models/access-token';
 
-@Injectable()
-export class JwtInterceptor implements HttpInterceptor {
-  private _localStorage: LocalstorageService = inject(LocalstorageService); 
+export const jwtInterceptor: HttpInterceptorFn = (req, next) => {
+  const localstorageService = inject(LocalstorageService);
+  const accessToken: string | null = localstorageService.getItem('access_token');
+  const trimmedToken = accessToken?.startsWith('"') && accessToken.endsWith('"') ? accessToken.slice(1, -1) : accessToken;
 
-  intercept(request: HttpRequest<any>, next: HttpHandler) {
-    const token: string | null = this._localStorage.getItem('token');
-    if (token) {
-      request = request.clone({
-        setHeaders: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-    }
-    return next.handle(request);
+  if (trimmedToken) {
+    const clonedRequest = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${trimmedToken}`,
+      },
+    });
+
+    return next(clonedRequest);
   }
+  return next(req);
 }

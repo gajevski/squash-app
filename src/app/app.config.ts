@@ -3,11 +3,10 @@ import { provideRouter, withComponentInputBinding, withViewTransitions } from '@
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, provideHttpClient, withFetch } from '@angular/common/http';
-import { JwtInterceptor } from '../shared/interceptors/jwt.interceptor';
-import { PRECONNECT_CHECK_BLOCKLIST } from '@angular/common';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { jwtInterceptor } from '../shared/interceptors/jwt.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes, withViewTransitions(), withComponentInputBinding()), provideClientHydration(), provideHttpClient(withFetch()), { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }, { provide: PRECONNECT_CHECK_BLOCKLIST, useValue: 'https://avatars.githubusercontent.com' }
+  providers: [provideRouter(routes, withViewTransitions(), withComponentInputBinding()), provideClientHydration(), provideHttpClient(withInterceptors([jwtInterceptor]), withFetch())
   ]
 };
