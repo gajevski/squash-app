@@ -29,7 +29,8 @@ export const routes: Routes = [
         path: 'tv',
         title: `SquashAPP - Squash TV`,
         loadComponent: () => import('../views/squash-tv/squash-tv.component')
-            .then((m) => m.SquashTvComponent), 
+            .then((m) => m.SquashTvComponent),
+        canActivate: [authGuard]  
     },
     {
         path: 'login',
