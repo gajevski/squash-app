@@ -22,7 +22,8 @@ export const routes: Routes = [
         title: `SquashAPP - Player's Profile`,
         loadComponent: () => import('../views/profile/profile.component')
             .then((m) => m.ProfileComponent),
-        resolve: { user: profileResolver }, 
+        resolve: { user: profileResolver },
+        canActivate: [authGuard]
     },
     {
         path: 'tv',
