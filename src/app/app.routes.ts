@@ -7,7 +7,8 @@ export const routes: Routes = [
         path: '',
         title: 'SquashAPP - Home Page',
         loadComponent: () => import('../views/home/home.component')
-            .then((m) => m.HomeComponent), 
+            .then((m) => m.HomeComponent),
+        canActivate: [authGuard]
     },
     {
         path: 'home',
