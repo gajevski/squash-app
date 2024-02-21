@@ -10,6 +10,7 @@ class LocalStorage implements Storage {
   key(index: number): string | null {return null;}
   removeItem(key: string): void {}
   setItem(key: string, value: string): void {}
+  hasItem(key: string): boolean {return false;}
 }
 
 @Injectable({
@@ -51,6 +52,10 @@ export class LocalstorageService implements Storage {
 
   public removeItem(key: string): void {
     return this._storage.removeItem(key);
+  }
+
+  public hasItem(key: string): boolean {
+    return this._storage.getItem(key) !== null
   }
 
   public setItem(key: string, value: string): void {
