@@ -27,6 +27,11 @@ export class AuthService {
     return of(user);
   }
 
+  public logout(): void {
+    this._localStorage.removeItem('access_token');
+    this.hasToken$.next(false);
+  }
+
   private _hasToken(): boolean {
     return this._localStorage.hasItem('access_token');
   }
