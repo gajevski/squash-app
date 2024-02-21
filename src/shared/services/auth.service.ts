@@ -10,10 +10,9 @@ import { LocalstorageService } from './localstorage.service';
   providedIn: 'root'
 })
 export class AuthService {
-  public hasToken$: BehaviorSubject<boolean> = new BehaviorSubject(this._hasToken());
+  private _localStorage: LocalstorageService = inject(LocalstorageService);
   private _http: HttpClient = inject(HttpClient);
   private _apiUrl: string = `${environment.apiBaseUrl}/auth/login`;
-  private _localStorage: LocalstorageService = inject(LocalstorageService);
 
   public login(user: User): Observable<AccessToken> {
     return this._http.post<AccessToken>(this._apiUrl, user)
@@ -29,14 +28,5 @@ export class AuthService {
 
   public logout(): void {
     this._localStorage.removeItem('access_token');
-    this.hasToken$.next(false);
-  }
-
-  public isLoggedIn(): Observable<boolean> {
-    return this.hasToken$.asObservable();
-   }
-
-  private _hasToken(): boolean {
-    return this._localStorage.hasItem('access_token');
   }
 }
