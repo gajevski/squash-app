@@ -32,6 +32,10 @@ export class AuthService {
     this.hasToken$.next(false);
   }
 
+  public isLoggedIn(): Observable<boolean> {
+    return this.hasToken$.asObservable();
+   }
+
   private _hasToken(): boolean {
     return this._localStorage.hasItem('access_token');
   }
