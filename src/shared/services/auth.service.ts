@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { environment } from '../../enviroment';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
-import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { AccessToken } from '../models/access-token';
 import { LocalstorageService } from './localstorage.service';
 
