@@ -20,10 +20,12 @@ export class AuthService {
       tap((token: AccessToken) => this._localStorage.setItem('access_token', JSON.stringify(token.access_token)))
     )
   }
-
-  public register(user: User): Observable<User> {
-    console.log("Register user: ", user);
-    return of(user);
+  
+  public register(user: User): Observable<AccessToken> {
+    return this._http.post<AccessToken>(this._apiUrl, user)
+    .pipe(
+      tap((token: AccessToken) => this._localStorage.setItem('access_token', JSON.stringify(token.access_token)))
+    )
   }
 
   public logout(): void {
