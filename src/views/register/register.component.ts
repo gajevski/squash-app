@@ -21,6 +21,7 @@ export class RegisterComponent {
   })
 
   public register(): void {
-    this.registerForm.valid ? this._authService.register(this.registerForm.value).subscribe() : null;
+    this.registerForm.valid ? this._authService.register(this.registerForm.value).pipe(tap() => this._router.navigate(['home'])).subscribe() : null;
+
   }
 }
