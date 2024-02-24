@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +14,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class RegisterComponent {
   private _authService: AuthService = inject(AuthService);
+  private _router: Router = inject(Router);
 
   public registerForm: FormGroup = new FormGroup({
     username: new FormControl<string>('', Validators.required),
@@ -21,6 +23,7 @@ export class RegisterComponent {
   })
 
   public register(): void {
-    this.registerForm.valid ? this._authService.register(this.registerForm.value).subscribe() : null;
+    this.registerForm.valid ? this._authService.register(this.registerForm.value).pipe(tap(() => this._router.navigate(['home']))).subscribe() : null;
+
   }
 }
