@@ -23,6 +23,10 @@ export class ProfileComponent {
   public tab: typeof Tab = Tab;
   public activeTab: string = this.tab.Activity
 
+  public get userImage(): string {
+    return this.user.image ? this.user.image : '../../assets/images/placeholder-profile-image.png';
+  }
+
   public changeTab(tab: Tab): void {
     this.activeTab = tab;
   }

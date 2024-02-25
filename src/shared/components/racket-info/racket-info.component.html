@@ -1,5 +1,6 @@
 <div class="mt-5 w-full flex flex-col overflow-hidden">
     <div class="card">
+        @if (racket) {
         <figure class="px-10 pt-10">
             <img [src]="racket.image" alt="racket image"
                 class="rounded-full w-48 h-48 border-4 border-white transition duration-200 transform hover:scale-110" />
@@ -11,5 +12,10 @@
             <p>String: {{ racket.string }}</p>
             <p>Grip: {{ racket.grip }}</p>
         </div>
+        } @else {
+        <div class="card-body items-center text-center text-gray-900">
+            <h2 class="card-title"> No racket added yet.</h2>
+        </div>
+        }
     </div>
 </div>
