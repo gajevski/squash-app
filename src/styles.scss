@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  height: 100vh;
+app-home {
+  display: block;
+  min-height: 100vh;
 }
