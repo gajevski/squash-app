@@ -45,6 +45,12 @@ export const routes: Routes = [
             .then((m) => m.TutorialComponent),
     },
     {
+        path: 'advanced-squash',
+        title: `SquashAPP - Advanced Squash`,
+        loadComponent: () => import('../views/advanced-tutorial/advanced-tutorial.component')
+            .then((m) => m.AdvancedTutorialComponent),
+    },
+    {
         path: 'register',
         title: `SquashAPP - Register`,
         loadComponent: () => import('../views/register/register.component')
