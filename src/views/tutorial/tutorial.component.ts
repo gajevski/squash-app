@@ -3,6 +3,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 enum TutorialTab {
   Serve = "serve",
   Rally = "rally",
+  Ballout = "ballout",
+  Scoring = "scoring",
 }
 
 @Component({
