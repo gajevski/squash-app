@@ -1,6 +1,15 @@
 <ul class="steps mt-4">
-    <li class="step step-primary">How to serve</li>
-    <li class="step step-primary">During the rally</li>
+    <li class="step step-primary" (click)="changeTab(tutorialTab.Serve)">How to serve</li>
+    <li class="step step-primary" (click)="changeTab(tutorialTab.Rally)">During the rally</li>
     <li class="step">When is a ball out?</li>
     <li class="step">Scoring</li>
 </ul>
+
+@switch (activeTutorialTab) {
+@case (tutorialTab.Serve) {
+<div>serve</div>
+}
+@case (tutorialTab.Rally) {
+<div>Rally</div>
+}
+}
