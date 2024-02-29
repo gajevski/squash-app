@@ -16,8 +16,8 @@ enum TutorialTab {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TutorialComponent {
-  public activeTutorialTab: string = 'serve';
   public tutorialTab: typeof TutorialTab = TutorialTab;
+  public activeTutorialTab: string = this.tutorialTab.Serve;
 
   public changeTutorialTab(tutorialTab: TutorialTab): void {
     this.activeTutorialTab = tutorialTab;
