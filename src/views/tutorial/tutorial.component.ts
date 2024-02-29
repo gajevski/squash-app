@@ -17,7 +17,7 @@ export class TutorialComponent {
   public activeTutorialTab: string = 'serve';
   public tutorialTab: typeof TutorialTab = TutorialTab;
 
-  public changeTab(tutorialTab: TutorialTab): void {
+  public changeTutorialTab(tutorialTab: TutorialTab): void {
     this.activeTutorialTab = tutorialTab;
   }
 }
