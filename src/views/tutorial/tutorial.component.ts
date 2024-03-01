@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TutorialServeComponent } from "../../shared/components/tutorial-serve/tutorial-serve.component";
 
 enum TutorialTab {
   Serve = "serve",
@@ -8,12 +9,12 @@ enum TutorialTab {
 }
 
 @Component({
-  selector: 'app-tutorial',
-  standalone: true,
-  imports: [],
-  templateUrl: './tutorial.component.html',
-  styleUrl: './tutorial.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-tutorial',
+    standalone: true,
+    templateUrl: './tutorial.component.html',
+    styleUrl: './tutorial.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [TutorialServeComponent]
 })
 export class TutorialComponent {
   public tutorialTab: typeof TutorialTab = TutorialTab;
