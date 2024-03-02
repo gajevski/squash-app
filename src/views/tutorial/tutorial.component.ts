@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TutorialServeComponent } from "../../shared/components/tutorial-serve/tutorial-serve.component";
-import { TutorialRallyComponent } from "../../shared/components/tutorial-rally/tutorial-rally.component";
-import { TutorialBalloutComponent } from "../../shared/components/tutorial-ballout/tutorial-ballout.component";
-import { TutorialScoringComponent } from "../../shared/components/tutorial-scoring/tutorial-scoring.component";
+import { TutorialServeComponent } from "../../shared/components/basic-tutorial/tutorial-serve/tutorial-serve.component";
+import { TutorialRallyComponent } from "../../shared/components/basic-tutorial/tutorial-rally/tutorial-rally.component";
+import { TutorialBalloutComponent } from "../../shared/components/basic-tutorial/tutorial-ballout/tutorial-ballout.component";
+import { TutorialScoringComponent } from "../../shared/components/basic-tutorial/tutorial-scoring/tutorial-scoring.component";
 
 enum TutorialTab {
   Serve = "serve",
