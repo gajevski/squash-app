@@ -1,8 +1,8 @@
 <ul class="steps mt-4">
-    <li class="step step-primary" (click)="changeTutorialTab(tutorialTab.Serve)">How to serve</li>
-    <li class="step" (click)="changeTutorialTab(tutorialTab.Rally)">During the rally</li>
-    <li class="step" (click)="changeTutorialTab(tutorialTab.Ballout)">When is a ball out?</li>
-    <li class="step" (click)="changeTutorialTab(tutorialTab.Scoring)">Scoring</li>
+    <li class="step" [class.step-primary]="progress.isServeFinished" (click)="changeTutorialTab(tutorialTab.Serve)">How to serve</li>
+    <li class="step" [class.step-primary]="progress.isRallyFinished" (click)="changeTutorialTab(tutorialTab.Rally)">During the rally</li>
+    <li class="step" [class.step-primary]="progress.isBalloutFinished" (click)="changeTutorialTab(tutorialTab.Ballout)">When is a ball out?</li>
+    <li class="step" [class.step-primary]="progress.isScoringFinished" (click)="changeTutorialTab(tutorialTab.Scoring)">Scoring</li>
 </ul>
 
 @switch (activeTutorialTab) {

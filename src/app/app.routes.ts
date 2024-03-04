@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { authGuard } from '../shared/guards/auth.guard';
 import { profileResolver } from '../views/profile/profile.resolver';
+import { tutorialResolver } from '../views/tutorial/tutorial.resolver';
 
 export const routes: Routes = [
     {
@@ -36,13 +37,15 @@ export const routes: Routes = [
         path: 'login',
         title: `SquashAPP - Login`,
         loadComponent: () => import('../views/login/login.component')
-            .then((m) => m.LoginComponent),
+        .then((m) => m.LoginComponent),
     },
     {
         path: 'tutorial',
         title: `SquashAPP - Tutorial`,
         loadComponent: () => import('../views/tutorial/tutorial.component')
-            .then((m) => m.TutorialComponent),
+        .then((m) => m.TutorialComponent),
+        resolve: { progress: tutorialResolver },
+        canActivate: [authGuard]  
     },
     {
         path: 'advanced-squash',
