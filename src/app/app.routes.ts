@@ -36,13 +36,14 @@ export const routes: Routes = [
         path: 'login',
         title: `SquashAPP - Login`,
         loadComponent: () => import('../views/login/login.component')
-            .then((m) => m.LoginComponent),
+        .then((m) => m.LoginComponent),
     },
     {
         path: 'tutorial',
         title: `SquashAPP - Tutorial`,
         loadComponent: () => import('../views/tutorial/tutorial.component')
-            .then((m) => m.TutorialComponent),
+        .then((m) => m.TutorialComponent),
+        canActivate: [authGuard]  
     },
     {
         path: 'advanced-squash',
