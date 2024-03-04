@@ -4,6 +4,7 @@ import { TutorialRallyComponent } from "../../shared/components/basic-tutorial/t
 import { TutorialBalloutComponent } from "../../shared/components/basic-tutorial/tutorial-ballout/tutorial-ballout.component";
 import { TutorialScoringComponent } from "../../shared/components/basic-tutorial/tutorial-scoring/tutorial-scoring.component";
 import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 enum TutorialTab {
   Serve = "serve",
@@ -24,6 +25,7 @@ export class TutorialComponent {
   public tutorialTab: typeof TutorialTab = TutorialTab;
   public activeTutorialTab: string = this.tutorialTab.Serve;
   private _route: ActivatedRoute = inject(ActivatedRoute);
+  public progress: any = this._route.snapshot.data['progress'];
 
   public changeTutorialTab(tutorialTab: TutorialTab): void {
     this.activeTutorialTab = tutorialTab;
