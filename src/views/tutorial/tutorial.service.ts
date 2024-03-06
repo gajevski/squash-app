@@ -13,4 +13,8 @@ export class TutorialService {
   public getBasicTutorialProgress(): Observable<BasicTutorial> {
     return this._http.get<BasicTutorial>(`${environment.apiBaseUrl}/basic-tutorial/progress`);
   }
+  
+  public updateBasicTutorialProgress(basicTutorial: BasicTutorial): Observable<BasicTutorial> {
+    return this._http.put<BasicTutorial>(`${environment.apiBaseUrl}/basic-tutorial/progress`, basicTutorial);
+  }
 }

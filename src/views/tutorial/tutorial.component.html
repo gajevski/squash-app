@@ -19,3 +19,10 @@
 <app-tutorial-scoring />
 }
 }
+<button class="btn btn-active btn-primary" (click)="updateProgress()">
+    @if (activeTutorialTab === tutorialTab.Scoring) {
+    <span>Finish basic tutorial</span>
+    } @else {
+    <span>Next section</span>
+    }
+</button>
