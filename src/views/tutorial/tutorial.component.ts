@@ -6,7 +6,7 @@ import { TutorialScoringComponent } from "../../shared/components/basic-tutorial
 import { ActivatedRoute } from '@angular/router';
 import { BasicTutorial } from '../../shared/models/basic-tutorial';
 import { TutorialService } from './tutorial.service';
-import { Observable, take, tap } from 'rxjs';
+import { take, tap } from 'rxjs';
 
 enum TutorialTab {
   Serve = "serve",
