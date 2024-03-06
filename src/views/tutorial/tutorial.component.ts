@@ -36,7 +36,6 @@ export class TutorialComponent {
 
   public updateProgress(): void {
     this._tutorialService.updateBasicTutorialProgress({
-      userId: 1,
       isServeFinished: true,
       isRallyFinished: false,
       isBalloutFinished: false,
