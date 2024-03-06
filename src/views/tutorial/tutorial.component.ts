@@ -58,7 +58,7 @@ export class TutorialComponent {
     this._tutorialService.updateBasicTutorialProgress(basicTutorial)
       .pipe(
         take(1),
-        tap((res) => this.progress = res)
+        tap((basicTutorial: BasicTutorial) => this.progress = basicTutorial)
       )
       .subscribe()
   }
