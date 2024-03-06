@@ -6,7 +6,7 @@ import { TutorialScoringComponent } from "../../shared/components/basic-tutorial
 import { ActivatedRoute } from '@angular/router';
 import { BasicTutorial } from '../../shared/models/basic-tutorial';
 import { TutorialService } from './tutorial.service';
-import { Observable, take } from 'rxjs';
+import { Observable, take, tap } from 'rxjs';
 
 enum TutorialTab {
   Serve = "serve",
@@ -35,14 +35,30 @@ export class TutorialComponent {
   }
 
   public updateProgress(): void {
-    this._tutorialService.updateBasicTutorialProgress({
-      isServeFinished: true,
-      isRallyFinished: false,
-      isBalloutFinished: false,
-      isScoringFinished: false
-    })
+    let basicTutorial: BasicTutorial = {};
+
+    switch (this.activeTutorialTab) {
+      case TutorialTab.Serve:
+        basicTutorial.isServeFinished = true;
+        this.changeTutorialTab(TutorialTab.Rally);
+        break;
+      case TutorialTab.Rally:
+        basicTutorial.isRallyFinished = true;
+        this.changeTutorialTab(TutorialTab.Ballout);
+        break;
+      case TutorialTab.Ballout:
+        basicTutorial.isBalloutFinished = true;
+        this.changeTutorialTab(TutorialTab.Scoring);
+        break;
+      case this.tutorialTab.Scoring:
+        basicTutorial.isScoringFinished = true;
+        break;
+    }
+
+    this._tutorialService.updateBasicTutorialProgress(basicTutorial)
       .pipe(
-        take(1)
+        take(1),
+        tap((res) => this.progress = res)
       )
       .subscribe()
   }
