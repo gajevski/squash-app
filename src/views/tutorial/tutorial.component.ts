@@ -3,7 +3,7 @@ import { TutorialServeComponent } from "../../shared/components/basic-tutorial/t
 import { TutorialRallyComponent } from "../../shared/components/basic-tutorial/tutorial-rally/tutorial-rally.component";
 import { TutorialBalloutComponent } from "../../shared/components/basic-tutorial/tutorial-ballout/tutorial-ballout.component";
 import { TutorialScoringComponent } from "../../shared/components/basic-tutorial/tutorial-scoring/tutorial-scoring.component";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BasicTutorial } from '../../shared/models/basic-tutorial';
 import { TutorialService } from './tutorial.service';
 import { take, tap } from 'rxjs';
@@ -28,6 +28,7 @@ export class TutorialComponent {
   public activeTutorialTab: string = this.tutorialTab.Serve;
   private _route: ActivatedRoute = inject(ActivatedRoute);
   private _tutorialService: TutorialService = inject(TutorialService);
+  private _router: Router = inject(Router);
   public progress: BasicTutorial = this._route.snapshot.data['progress'];
 
   public changeTutorialTab(tutorialTab: TutorialTab): void {
@@ -52,6 +53,7 @@ export class TutorialComponent {
         break;
       case this.tutorialTab.Scoring:
         basicTutorial.isScoringFinished = true;
+        this._router.navigate(['/home'])
         break;
     }
 
