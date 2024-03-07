@@ -21,3 +21,11 @@
 <div>4</div>
 }
 }
+
+<button class="btn btn-active btn-primary" (click)="updateProgress()">
+    @if (activeTutorialTab === tutorialTab.4) {
+    <span>Finish advanced tutorial</span>
+    } @else {
+    <span>Next section</span>
+    }
+</button>
