@@ -22,4 +22,24 @@ export class AdvancedTutorialComponent {
   public changeTutorialTab(tutorialTab: TutorialTab): void {
     this.activeTutorialTab = tutorialTab;
   }
+
+  
+  public updateProgress(): void {
+    let advancedTutorial: any = {};
+
+    switch (this.activeTutorialTab) {
+      case TutorialTab.One:
+        this.changeTutorialTab(TutorialTab.Two);
+        break;
+      case TutorialTab.Two:
+        this.changeTutorialTab(TutorialTab.Three);
+        break;
+      case TutorialTab.Three:
+        this.changeTutorialTab(TutorialTab.Four);
+        break;
+      case this.tutorialTab.Four:
+        // this._router.navigate(['/home'])
+        break;
+    }
+  }
 }
