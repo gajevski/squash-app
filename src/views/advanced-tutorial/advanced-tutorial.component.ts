@@ -25,7 +25,7 @@ export class AdvancedTutorialComponent {
     this.activeTutorialTab = tutorialTab;
   }
 
-  
+
   public updateProgress(): void {
     let advancedTutorial: any = {};
 
