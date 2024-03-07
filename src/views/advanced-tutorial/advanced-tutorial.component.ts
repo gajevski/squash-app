@@ -17,5 +17,5 @@ enum TutorialTab {
 })
 export class AdvancedTutorialComponent {
   public tutorialTab: typeof TutorialTab = TutorialTab;
-
+  public activeTutorialTab: string = this.tutorialTab.One;
 }
