@@ -1,1 +1,6 @@
-<p>advanced-tutorial works!</p>
+<ul class="steps mt-4">
+    <li class="step" [class.step-primary]="progress.1" (click)="changeTutorialTab(tutorialTab.Serve)">How to serve</li>
+    <li class="step" [class.step-primary]="progress.2" (click)="changeTutorialTab(tutorialTab.Rally)">During the rally</li>
+    <li class="step" [class.step-primary]="progress.3" (click)="changeTutorialTab(tutorialTab.Ballout)">When is a ball out?</li>
+    <li class="step" [class.step-primary]="progress.4" (click)="changeTutorialTab(tutorialTab.Scoring)">Scoring</li>
+</ul>
