@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 enum TutorialTab {
   One = "1",
@@ -18,6 +19,7 @@ enum TutorialTab {
 export class AdvancedTutorialComponent {
   public tutorialTab: typeof TutorialTab = TutorialTab;
   public activeTutorialTab: string = this.tutorialTab.One;
+  private _router: Router = inject(Router);
 
   public changeTutorialTab(tutorialTab: TutorialTab): void {
     this.activeTutorialTab = tutorialTab;
