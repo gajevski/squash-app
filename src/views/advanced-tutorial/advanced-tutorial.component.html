@@ -1,1 +1,30 @@
-<p>advanced-tutorial works!</p>
+<ul class="steps mt-4">
+    <li class="step" (click)="changeTutorialTab(tutorialTab.One)">One</li>
+    <li class="step" (click)="changeTutorialTab(tutorialTab.Two)">Two
+    </li>
+    <li class="step" (click)="changeTutorialTab(tutorialTab.Three)">Three</li>
+    <li class="step" (click)="changeTutorialTab(tutorialTab.Four)">Four</li>
+</ul>
+
+@switch (activeTutorialTab) {
+@case (tutorialTab.One) {
+<div>1</div>
+}
+@case (tutorialTab.Two) {
+<div>2</div>
+}
+@case (tutorialTab.Three) {
+<div>3</div>
+}
+@case (tutorialTab.Four) {
+<div>4</div>
+}
+}
+
+<button class="btn btn-active btn-primary" (click)="updateProgress()">
+    @if (activeTutorialTab === tutorialTab.Four) {
+    <span>Finish advanced tutorial</span>
+    } @else {
+    <span>Next section</span>
+    }
+</button>
