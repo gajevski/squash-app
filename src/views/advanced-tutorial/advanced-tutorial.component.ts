@@ -1,5 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+enum TutorialTab {
+  One = "1",
+  Two = "2",
+  Three = "3",
+  Four = "4",
+}
+
 @Component({
   selector: 'app-advanced-tutorial',
   standalone: true,
@@ -9,5 +16,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdvancedTutorialComponent {
+  public tutorialTab: typeof TutorialTab = TutorialTab;
 
 }
