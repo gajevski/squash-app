@@ -38,7 +38,7 @@ export class AdvancedTutorialComponent {
         this.changeTutorialTab(TutorialTab.Four);
         break;
       case this.tutorialTab.Four:
-        // this._router.navigate(['/home'])
+        this._router.navigate(['/home'])
         break;
     }
   }
