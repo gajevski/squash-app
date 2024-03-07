@@ -1,6 +1,23 @@
 <ul class="steps mt-4">
     <li class="step" [class.step-primary]="progress.1" (click)="changeTutorialTab(tutorialTab.Serve)">How to serve</li>
-    <li class="step" [class.step-primary]="progress.2" (click)="changeTutorialTab(tutorialTab.Rally)">During the rally</li>
-    <li class="step" [class.step-primary]="progress.3" (click)="changeTutorialTab(tutorialTab.Ballout)">When is a ball out?</li>
+    <li class="step" [class.step-primary]="progress.2" (click)="changeTutorialTab(tutorialTab.Rally)">During the rally
+    </li>
+    <li class="step" [class.step-primary]="progress.3" (click)="changeTutorialTab(tutorialTab.Ballout)">When is a ball
+        out?</li>
     <li class="step" [class.step-primary]="progress.4" (click)="changeTutorialTab(tutorialTab.Scoring)">Scoring</li>
 </ul>
+
+@switch (activeTutorialTab) {
+@case (tutorialTab.1) {
+<div>1</div>
+}
+@case (tutorialTab.2) {
+<div>2</div>
+}
+@case (tutorialTab.3) {
+<div>3</div>
+}
+@case (tutorialTab.4) {
+<div>4</div>
+}
+}
