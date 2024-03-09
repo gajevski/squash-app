@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdvancedTutorial } from '../../shared/models/advanced-tutorial';
 
 enum TutorialTab {
   One = "1",
@@ -27,7 +28,7 @@ export class AdvancedTutorialComponent {
 
 
   public updateProgress(): void {
-    let advancedTutorial: any = {};
+    let advancedTutorial: AdvancedTutorial = {};
 
     switch (this.activeTutorialTab) {
       case TutorialTab.One:
