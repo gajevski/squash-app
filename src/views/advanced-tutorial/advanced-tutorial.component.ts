@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdvancedTutorial } from '../../shared/models/advanced-tutorial';
 
 enum TutorialTab {
@@ -20,12 +20,13 @@ enum TutorialTab {
 export class AdvancedTutorialComponent {
   public tutorialTab: typeof TutorialTab = TutorialTab;
   public activeTutorialTab: string = this.tutorialTab.One;
+  private _route: ActivatedRoute = inject(ActivatedRoute);
   private _router: Router = inject(Router);
+  public progress: AdvancedTutorial = this._route.snapshot.data['progress'];
 
   public changeTutorialTab(tutorialTab: TutorialTab): void {
     this.activeTutorialTab = tutorialTab;
   }
-
 
   public updateProgress(): void {
     let advancedTutorial: AdvancedTutorial = {};
