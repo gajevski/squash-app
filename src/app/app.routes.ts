@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { authGuard } from '../shared/guards/auth.guard';
 import { profileResolver } from '../views/profile/profile.resolver';
 import { tutorialResolver } from '../views/tutorial/tutorial.resolver';
+import { advancedTutorialResolver } from '../views/advanced-tutorial/advanced-tutorial.resolver';
 
 export const routes: Routes = [
     {
@@ -52,6 +53,7 @@ export const routes: Routes = [
         title: `SquashAPP - Advanced Squash`,
         loadComponent: () => import('../views/advanced-tutorial/advanced-tutorial.component')
             .then((m) => m.AdvancedTutorialComponent),
+        resolve: { progress: advancedTutorialResolver },
     },
     {
         path: 'register',
