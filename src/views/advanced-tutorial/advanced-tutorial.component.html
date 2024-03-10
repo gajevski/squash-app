@@ -1,9 +1,8 @@
 <ul class="steps mt-4">
-    <li class="step" (click)="changeTutorialTab(tutorialTab.One)">One</li>
-    <li class="step" (click)="changeTutorialTab(tutorialTab.Two)">Two
-    </li>
-    <li class="step" (click)="changeTutorialTab(tutorialTab.Three)">Three</li>
-    <li class="step" (click)="changeTutorialTab(tutorialTab.Four)">Four</li>
+    <li class="step" [class.step-primary]="progress.one" (click)="changeTutorialTab(tutorialTab.One)">One</li>
+    <li class="step" [class.step-primary]="progress.two" (click)="changeTutorialTab(tutorialTab.Two)">Two</li>
+    <li class="step" [class.step-primary]="progress.three" (click)="changeTutorialTab(tutorialTab.Three)">Three</li>
+    <li class="step" [class.step-primary]="progress.four" (click)="changeTutorialTab(tutorialTab.Four)">Four</li>
 </ul>
 
 @switch (activeTutorialTab) {
