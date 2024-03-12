@@ -3,16 +3,24 @@
 <app-navbar image="../assets/images/placeholder-profile-image.png" />
 <app-bottom-nav />
 }
-<div class="flex items-center space-x-2">
+<div class="flex items-center space-x-2 toggle-buttons-container">
     <button class="btn btn-primary btn-circle" (click)="toggleButtons()">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-      </button>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
     <div *ngIf="showButtons" class="flex space-x-2">
-      <button class="px-2 py-1 bg-green-500 text-white rounded">1</button>
-      <button class="px-2 py-1 bg-red-500 text-white rounded">2</button>
-      <button class="px-2 py-1 bg-yellow-500 text-white rounded">3</button>
+        <button class="btn btn-info btn-circle">
+            1
+        </button>
+        <button class="btn btn-success btn-circle">
+            2
+        </button>
+        <button class="btn btn-warning btn-circle">
+            3
+        </button>
     </div>
-  </div>
+</div>
 <router-outlet />
 }
 @loading(minimum 2000) {
