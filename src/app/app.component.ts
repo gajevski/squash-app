@@ -17,8 +17,13 @@ import { AuthService } from '../shared/services/auth.service';
 export class AppComponent {
   static isBrowser: BehaviorSubject<boolean | null> = new BehaviorSubject<boolean | null>(null);
   public isUserLoggedIn: BehaviorSubject<boolean> = inject(AuthService).isLoggedIn$;
+  public showButtons: boolean = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
     AppComponent.isBrowser.next(isPlatformBrowser(platformId));
+  }
+
+  public toggleButtons(): void {
+    this.showButtons = !this.showButtons;
   }
 }
