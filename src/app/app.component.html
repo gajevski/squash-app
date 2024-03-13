@@ -6,7 +6,7 @@
 <div class="fixed bottom-5 right-5 flex flex-col items-end">
     @if (showButtons) {
     @for (button of buttons; track button.label) {
-    <div class="mb-2">
+    <div class="mb-2" @fadeInOut>
         <button class="p-2" [ngClass]="button.color" (click)="button.action()">
             {{ button.label }}
         </button>
@@ -14,7 +14,7 @@
     }
     }
     <button (click)="toggleButtons()" class="btn btn-circle btn-primary">
-        +
+        {{ showButtons ? 'x' : '+' }}
     </button>
 </div>
 
