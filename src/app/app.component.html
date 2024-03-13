@@ -7,15 +7,13 @@
     @if (showButtons) {
     @for (button of buttons; track button.label) {
     <div class="mb-2">
-        <button class="p-2 text-white rounded-full transition duration-300" [ngClass]="button.color"
-            (click)="button.action()">
+        <button class="p-2" [ngClass]="button.color" (click)="button.action()">
             {{ button.label }}
         </button>
     </div>
     }
     }
-    <button (click)="toggleButtons()"
-        class="p-4 bg-purple-500 text-white rounded-full hover:bg-purple-700 transition duration-300">
+    <button (click)="toggleButtons()" class="btn btn-circle btn-primary">
         +
     </button>
 </div>
