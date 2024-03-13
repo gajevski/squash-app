@@ -25,6 +25,15 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
       transition('* => void', [
         animate(150, style({ opacity: 0 }))
       ])
+    ]),
+    trigger('rotate', [
+      state('default', style({
+        transform: 'rotate(0)'
+      })),
+      state('rotated', style({
+        transform: 'rotate(315deg)'
+      })),
+      transition('default <=> rotated', animate('400ms ease-out'))
     ])
   ]
 })
