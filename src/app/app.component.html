@@ -3,7 +3,7 @@
 <app-navbar image="../assets/images/placeholder-profile-image.png" />
 <app-bottom-nav />
 }
-<div class="fixed bottom-5 right-5 flex flex-col items-end">
+<div class="fixed bottom-20 right-5 flex flex-col items-end z-10">
     @if (showButtons) {
     @for (button of buttons; track button.label) {
     <div class="mb-2" @fadeInOut>
