@@ -5,6 +5,7 @@ import { BottomNavComponent } from '../shared/components/bottom-nav/bottom-nav.c
 import { BehaviorSubject } from 'rxjs';
 import { NavbarComponent } from '../shared/components/navbar/navbar.component';
 import { AuthService } from '../shared/services/auth.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 
 @Component({
@@ -14,6 +15,18 @@ import { AuthService } from '../shared/services/auth.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('fadeInOut', [
+      state('in', style({ opacity: 1 })),
+      transition('void => *', [
+        style({ opacity: 0 }),
+        animate(150)
+      ]),
+      transition('* => void', [
+        animate(150, style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 
 export class AppComponent {
