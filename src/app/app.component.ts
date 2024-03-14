@@ -43,9 +43,9 @@ export class AppComponent {
   public isUserLoggedIn: BehaviorSubject<boolean> = inject(AuthService).isLoggedIn$;
   public showButtons: boolean = false;
   public buttons = [
-    { label: '1', color: 'btn btn-circle btn-primary btn-info text-white', action: () => {} },
-    { label: '2', color: 'btn btn-circle btn-primary btn-info text-white', action: () => {} },
-    { label: '3', color: 'btn btn-circle btn-primary btn-info text-white', action: () => {} },
+    { label: '1', color: 'btn btn-circle btn-primary text-white', action: () => {} },
+    { label: '2', color: 'btn btn-circle btn-primary text-white', action: () => {} },
+    { label: '3', color: 'btn btn-circle btn-primary text-white', action: () => {} },
   ];
 
   constructor(@Inject(PLATFORM_ID) private platformId: any) {
