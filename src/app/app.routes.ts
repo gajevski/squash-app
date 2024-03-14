@@ -62,6 +62,12 @@ export const routes: Routes = [
             .then((m) => m.RegisterComponent),
     },
     {
+        path: 'sparring',
+        title: `SquashAPP - Sparring`,
+        loadComponent: () => import('../views/sparring/sparring.component')
+            .then((m) => m.SparringComponent),
+    },
+    {
         path: '**',
         title: 'SquashAPP - Home Page',
         loadComponent: () => import('../views/home/home.component')
