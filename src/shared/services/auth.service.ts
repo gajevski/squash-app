@@ -15,6 +15,10 @@ export class AuthService {
   private _apiUrl: string = `${environment.apiBaseUrl}/auth`;
   public isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
+  constructor() {
+    this._checkInitialLoginState();
+  }
+
   public login(user: User): Observable<AccessToken> {
     return this._http.post<AccessToken>(`${this._apiUrl}/login`, user)
       .pipe(
@@ -22,7 +26,7 @@ export class AuthService {
           this._localStorage.setItem('access_token', JSON.stringify(token.access_token))
           this.isLoggedIn$.next(true);
         })
-      )
+      );
   }
 
   public register(user: User): Observable<AccessToken> {
@@ -32,11 +36,16 @@ export class AuthService {
           this._localStorage.setItem('access_token', JSON.stringify(token.access_token))
           this.isLoggedIn$.next(true);
         })
-      )
+      );
   }
 
   public logout(): void {
     this._localStorage.removeItem('access_token');
     this.isLoggedIn$.next(false);
+  }
+
+  private _checkInitialLoginState(): void {
+    const accessToken: string | null = this._localStorage.getItem('access_token');
+    this.isLoggedIn$.next(!!accessToken);
   }
 }
