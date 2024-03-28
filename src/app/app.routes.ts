@@ -68,6 +68,18 @@ export const routes: Routes = [
             .then((m) => m.SparringComponent),
     },
     {
+        path: 'stoper',
+        title: `SquashAPP - Stoper`,
+        loadComponent: () => import('../views/stoper/stoper.component')
+            .then((m) => m.StoperComponent),
+    },
+    {
+        path: 'search-player',
+        title: `SquashAPP - Search player`,
+        loadComponent: () => import('../views/search-player/search-player.component')
+            .then((m) => m.SearchPlayerComponent),
+    },
+    {
         path: '**',
         title: 'SquashAPP - Home Page',
         loadComponent: () => import('../views/home/home.component')
