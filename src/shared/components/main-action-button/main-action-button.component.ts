@@ -41,7 +41,7 @@ export class MainActionButtonComponent {
   }[] = [
       { label: '1', color: 'btn btn-circle btn-primary text-white', action: () => { this._router.navigate(['/sparring']) } },
       { label: '2', color: 'btn btn-circle btn-primary text-white', action: () => { this._router.navigate(['/stoper']) } },
-      { label: '3', color: 'btn btn-circle btn-primary text-white', action: () => { } },
+      { label: '3', color: 'btn btn-circle btn-primary text-white', action: () => { this._router.navigate(['/search-player']) } },
     ];
 
   public toggleButtons(): void {
