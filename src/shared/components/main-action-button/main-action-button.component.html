@@ -1,12 +1,16 @@
 <div class="fixed bottom-20 right-5 flex flex-col items-end z-10">
     @if (showButtons) {
-    @for (button of buttons; track button.label) {
     <div class="mb-2" @fadeInOut>
-        <button class="p-2" [ngClass]="button.color" (click)="button.action()">
-            {{ button.label }}
+        <button class="p-2 btn btn-circle btn-primary text-white" routerLink="/sparring">
+            button.label
+        </button>
+        <button class="p-2 btn btn-circle btn-primary text-white" routerLink="/stoper">
+            button.label
+        </button>
+        <button class="p-2 btn btn-circle btn-primary text-white" routerLink="/search-player">
+            button.label
         </button>
     </div>
-    }
     }
     <button (click)="toggleButtons()" [@rotate]="showButtons ? 'rotated' : 'default'"
         class="btn btn-circle btn-primary">
