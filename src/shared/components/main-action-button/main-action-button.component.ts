@@ -1,12 +1,12 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-main-action-button',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './main-action-button.component.html',
   styleUrl: './main-action-button.component.scss',
   animations: [
@@ -32,17 +32,7 @@ import { Router } from '@angular/router';
   ]
 })
 export class MainActionButtonComponent {
-  private _router: Router = inject(Router);
   public showButtons: boolean = false;
-  public buttons: {
-    label: string;
-    color: string;
-    action: () => void;
-  }[] = [
-      { label: '1', color: 'btn btn-circle btn-primary text-white', action: () => { this._router.navigate(['/sparring']) } },
-      { label: '2', color: 'btn btn-circle btn-primary text-white', action: () => { this._router.navigate(['/stoper']) } },
-      { label: '3', color: 'btn btn-circle btn-primary text-white', action: () => { this._router.navigate(['/search-player']) } },
-    ];
 
   public toggleButtons(): void {
     this.showButtons = !this.showButtons;
