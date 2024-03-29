@@ -34,15 +34,6 @@ import { Router } from '@angular/router';
 export class MainActionButtonComponent {
   private _router: Router = inject(Router);
   public showButtons: boolean = false;
-  public buttons: {
-    label: string;
-    color: string;
-    action: () => void;
-  }[] = [
-      { label: '1', color: 'btn btn-circle btn-primary text-white', action: () => { this._router.navigate(['/sparring']) } },
-      { label: '2', color: 'btn btn-circle btn-primary text-white', action: () => { this._router.navigate(['/stoper']) } },
-      { label: '3', color: 'btn btn-circle btn-primary text-white', action: () => { this._router.navigate(['/search-player']) } },
-    ];
 
   public toggleButtons(): void {
     this.showButtons = !this.showButtons;
