@@ -32,7 +32,6 @@ import { Router } from '@angular/router';
   ]
 })
 export class MainActionButtonComponent {
-  private _router: Router = inject(Router);
   public showButtons: boolean = false;
 
   public toggleButtons(): void {
