@@ -45,7 +45,7 @@ export class AuthService {
   }
 
   private _checkInitialLoginState(): void {
-    const accessToken: string | null = this._localStorage.getItem('access_token');
-    this.isLoggedIn$.next(!!accessToken);
+    const accessToken: boolean = this._localStorage.hasItem('access_token');
+    this.isLoggedIn$.next(accessToken);
   }
 }
