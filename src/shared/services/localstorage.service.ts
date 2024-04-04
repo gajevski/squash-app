@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
-import { AppComponent } from '../../app/app.component';
-import { tap } from 'rxjs';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 class LocalStorage implements Storage {
   [name: string]: any;
@@ -20,18 +19,12 @@ export class LocalstorageService implements Storage {
 
   private _storage: Storage;
 
-  constructor() {
-    this._storage = new LocalStorage();
-
-    AppComponent.isBrowser
-    .pipe(
-      tap((isBrowser: boolean | null) => {
-        if (isBrowser) {
-          this._storage = localStorage;
-        }
-      })
-    )
-    .subscribe();
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    if (isPlatformBrowser(this.platformId)) {
+      this._storage = localStorage;
+    } else {
+      this._storage = new LocalStorage();
+    }
   }
 
   [name: string]: any;
