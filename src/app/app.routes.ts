@@ -28,10 +28,10 @@ export const routes: Routes = [
         canActivate: [authGuard]
     },
     {
-        path: 'tv',
-        title: `SquashAPP - Squash TV`,
-        loadComponent: () => import('../views/squash-tv/squash-tv.component')
-            .then((m) => m.SquashTvComponent),
+        path: 'practice',
+        title: `SquashAPP - Squash Practice`,
+        loadComponent: () => import('../views/practice/practice.component')
+            .then((m) => m.PracticeComponent),
         canActivate: [authGuard]  
     },
     {
