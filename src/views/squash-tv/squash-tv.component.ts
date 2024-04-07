@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { HighlightCardComponent } from "../../shared/components/highlight-card/highlight-card.component";
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-squash-tv',
@@ -7,7 +7,7 @@ import { HighlightCardComponent } from "../../shared/components/highlight-card/h
     templateUrl: './squash-tv.component.html',
     styleUrl: './squash-tv.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [HighlightCardComponent]
+    imports: [RouterModule]
 })
 export class SquashTvComponent {
 
