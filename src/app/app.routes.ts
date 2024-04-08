@@ -3,6 +3,7 @@ import { authGuard } from '../shared/guards/auth.guard';
 import { profileResolver } from '../views/profile/profile.resolver';
 import { tutorialResolver } from '../views/tutorial/tutorial.resolver';
 import { advancedTutorialResolver } from '../views/advanced-tutorial/advanced-tutorial.resolver';
+import { playerPageResolver } from '../views/player-page/player-page.resolver';
 
 export const routes: Routes = [
     {
@@ -25,6 +26,14 @@ export const routes: Routes = [
         loadComponent: () => import('../views/profile/profile.component')
             .then((m) => m.ProfileComponent),
         resolve: { user: profileResolver },
+        canActivate: [authGuard]
+    },
+    {
+        path: 'player',
+        title: `SquashAPP - Player's Profile`,
+        loadComponent: () => import('../views/player-page/player-page.component')
+            .then((m) => m.PlayerPageComponent),
+        resolve: { user: playerPageResolver },
         canActivate: [authGuard]
     },
     {
