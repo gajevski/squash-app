@@ -31,4 +31,8 @@ export class PlayerPageComponent {
   public followUser() {
     console.log('follow');
   }
+
+  public messageUser() {
+    console.log('message');
+  }
 }
