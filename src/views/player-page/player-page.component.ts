@@ -27,4 +27,8 @@ export class PlayerPageComponent {
   public changeTab(tab: Tab): void {
     this.activeTab = tab;
   }
+
+  public followUser() {
+    console.log('follow');
+  }
 }
