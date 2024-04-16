@@ -10,8 +10,13 @@ import { Racket } from '../../models/racket';
 })
 export class RacketInfoComponent {
   @Input({ required: true }) racket!: Racket;
+  public modalOpen: boolean = false;
 
-  public addRacket(): void {
-    console.log('add-racket');
+  public openModal(): void {
+    this.modalOpen = true;
+  }
+
+  public closeModal(): void {
+    this.modalOpen = false;
   }
 }
