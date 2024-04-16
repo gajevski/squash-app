@@ -10,4 +10,8 @@ import { Racket } from '../../models/racket';
 })
 export class RacketInfoComponent {
   @Input({ required: true }) racket!: Racket;
+
+  public addRacket(): void {
+    console.log('add-racket');
+  }
 }
