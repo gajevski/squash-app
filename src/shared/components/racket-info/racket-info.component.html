@@ -6,12 +6,10 @@
             <div tabindex="0" role="button" class="btn btn-circle btn-ghost text-info">
               <svg tabindex="0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
-            <div tabindex="0" class="card compact dropdown-content z-[1] shadow bg-base-100 rounded-box w-64">
-              <div tabindex="0" class="card-body">
-                <h2 class="card-title">You needed more info?</h2> 
-                <p>Here is a description!</p>
-              </div>
-            </div>
+            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+              <li><a>Edit</a></li>
+              <li><a>Delete</a></li>
+            </ul>
           </div>
         <figure class="px-10 pt-10">
             <img [src]="racket.image" alt="racket image"
