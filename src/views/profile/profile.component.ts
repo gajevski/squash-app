@@ -12,7 +12,6 @@ import { ActivityInfoComponent } from "../../shared/components/activity-info/act
     selector: 'app-profile',
     standalone: true,
     templateUrl: './profile.component.html',
-    styleUrl: './profile.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [CommonModule, NgOptimizedImage, ProfileTabsComponent, RacketInfoComponent, StatisticsInfoComponent, ActivityInfoComponent]
 })
