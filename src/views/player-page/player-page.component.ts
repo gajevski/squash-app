@@ -11,7 +11,6 @@ import { Tab } from '../../shared/enums/tab';
     selector: 'app-player-page',
     standalone: true,
     templateUrl: './player-page.component.html',
-    styleUrl: './player-page.component.scss',
     imports: [ActivityInfoComponent, RacketInfoComponent, ProfileTabsComponent, StatisticsInfoComponent]
 })
 export class PlayerPageComponent {
