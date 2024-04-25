@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
     selector: 'app-practice',
     standalone: true,
     templateUrl: './practice.component.html',
-    styleUrl: './practice.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [RouterModule]
 })
