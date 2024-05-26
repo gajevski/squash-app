@@ -10,4 +10,8 @@ import { Statistics } from '../../models/statistics';
 })
 export class StatisticsInfoComponent {
   @Input({ required: true }) public statistics!: Statistics;
+
+  public get winratio(): number {
+    return (this.statistics.matchesWon / this.statistics.matchesPlayed) * 100;
+  }
 }
